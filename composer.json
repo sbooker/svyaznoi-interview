@@ -1,0 +1,44 @@
+{
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "php": "^7.4",
+        "litgroup/enumerable": "^0.7.0",
+        "php-ds/php-ds": "^1.2",
+        "ramsey/uuid": "^3.9"
+    },
+    "require-dev": {
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "App\\Tests\\": "tests/"
+        }
+    },
+    "replace": {
+    },
+    "scripts": {
+        "auto-scripts": {
+        },
+        "post-install-cmd": [
+            "@auto-scripts"
+        ],
+        "post-update-cmd": [
+            "@auto-scripts"
+        ]
+    },
+    "conflict": {
+    },
+    "extra": {
+    }
+}

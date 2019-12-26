@@ -1,0 +1,22 @@
+version: '3.4'
+
+x-template: &template
+  env_file:
+    - .env
+  volumes:
+    - .:/opt/app:delegated
+  tmpfs:
+    - /tmp
+    - /tmp/php-opcache
+
+x-fpm-template: &fpm
+  <<: *template
+  build:
+    context: .
+    dockerfile: Dockerfile
+
+services:
+  web:
+    <<: *fpm
+    ports:
+      - '127.0.0.1:9000:9000'
