@@ -100,6 +100,9 @@ class Order
         if (!$this->paymentOrder->equals(PaymentOrder::online())) {
             return;
         }
+        if ($timeout <= 0) {
+            throw new \InvalidArgumentException();
+        }
 
         if ($this->getStatusChangedAt() < new \DateTimeImmutable("-{$timeout}seconds")) {
             $this->markCanceled(CancelReason::notPaid());
